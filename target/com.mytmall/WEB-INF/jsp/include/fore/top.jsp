@@ -1,0 +1,31 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2019/10/26
+  Time: 14:23
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" isELIgnored="false"%>
+<nav class="top">
+    <a href="${contextPath}">
+        <span style="color: #c40000;margin: 0" class="glyphicon glyphicon-home redColor"></span>
+        天猫首页
+    </a>
+    <span>喵~，欢迎来到天猫</span>
+    <c:if test = "${!empty user}">
+        <a href="loginPage">${user.name}</a>
+        <a href="forlogout">退出</a>
+    </c:if>
+    <c:if test="${empty user}">
+        <a href="loginPage">请登录</a>
+        <a href="registerPage">免费注册</a>
+    </c:if>
+    <span class="pull-right">
+        <a href="forebought">我的订单</a>
+        <a href="forecart">
+            <span style="color: #c40000;margin: 0" class="glyphicon glyphicon-cart redColor"></span>
+            购物车<strong>${cartTotalItemNumber}</strong>件</a>
+    </span>
+</nav>
