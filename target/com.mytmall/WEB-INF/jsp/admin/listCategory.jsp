@@ -29,7 +29,6 @@
         });
     });
 </script>
-
 <div class="workingArea">
     <div class="listDataTableDiv">
         <table class="table table-striped table-bordered table-hover  table-condensed">
@@ -50,7 +49,7 @@
                     <td>${c.name}</td>
                     <td><a href="admin_property_list?cid=${c.id}"><span class="glyphicon glyphicon-th-list"></span> </a></td>
                     <td><a href="admin_product_list?cid=${c.id}"><span class="glyphicon glyphicon-shopping-cart"></span> </a></td>
-                    <td><a href="admin_category_edit?id=${c.id}"><span class="glyphicon glyphicon-edit"></span> </a></td>
+                    <td><a href="admin_category_get?id=${c.id}"><span class="glyphicon glyphicon-edit"></span> </a></td>
                     <td><a deleteLink="true" href="admin_category_delete?id=${c.id}"><span class="glyphicon glyphicon-remove"></span></a> </td>
                 </tr>
             </c:forEach>
@@ -66,7 +65,7 @@
 <div class="panel panel-warning addDiv">
     <div class="panel-heading">新增分类</div>
     <div class="panel-body">
-        <form method="post" id="getForm" action="admin_category_add" enctype="multipart/form-data">
+        <form method="post" id="addForm" action="admin_category_add" enctype="multipart/form-data">
             <table class="addTable">
                 <tr>
                     <td>分类名称</td>

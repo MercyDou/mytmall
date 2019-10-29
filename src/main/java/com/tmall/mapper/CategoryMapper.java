@@ -1,17 +1,21 @@
 package com.tmall.mapper;
 
 import com.tmall.entity.Category;
-import com.tmall.util.Page;
-
+import com.tmall.entity.CategoryExample;
 import java.util.List;
 
 public interface CategoryMapper {
+    int deleteByPrimaryKey(Integer id);
 
-    public int total();
+    int insert(Category record);
 
-    public void delete(int id);
+    int insertSelective(Category record);
 
-    public void add(Category category);
+    List<Category> selectByExample(CategoryExample example);
 
-    public List<Category> list(Page page);
+    Category selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(Category record);
+
+    int updateByPrimaryKey(Category record);
 }

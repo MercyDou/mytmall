@@ -1,6 +1,7 @@
 package com.tmall.service.Impl;
 
 import com.tmall.entity.Category;
+import com.tmall.entity.CategoryExample;
 import com.tmall.mapper.CategoryMapper;
 import com.tmall.service.CategoryService;
 import com.tmall.util.Page;
@@ -16,22 +17,31 @@ public class CategoryServiceImpl implements CategoryService {
 
 
     @Override
-    public int total() {
-        return categoryMapper.total();
-    }
-
-    @Override
-    public List<Category> listCategory(Page page) {
-        return categoryMapper.list(page);
+    public List<Category> listCategory() {
+        CategoryExample example = new CategoryExample();
+        example.setOrderByClause("id desc");
+        return categoryMapper.selectByExample(example);
     }
 
     @Override
     public void deleteCategory(int id) {
-         categoryMapper.delete(id);
+        categoryMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public void addCategory(Category category) {
-        categoryMapper.add(category);
+        categoryMapper.insert(category);
     }
+
+    @Override
+    public Category getCategory(int id) {
+        return categoryMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public void editCategory(Category category) {
+        categoryMapper.updateByPrimaryKeySelective(category);//只修改变化了的字段，未变化的字段就不修改了
+    }
+
+
 }
